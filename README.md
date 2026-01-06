@@ -1,0 +1,43 @@
+# 📋 Task Manager CLI
+
+Um gerenciador de tarefas pessoal, robusto e simples, desenvolvido em Python. O objetivo deste projeto é aplicar conceitos avançados de Orientação a Objetos e Arquitetura de Software em uma aplicação de linha de comando.
+
+---
+
+## 🚀 Funcionalidades Atuais (MVP)
+
+* **Adicionar Tarefa:** Criação de tarefas com título e descrição.
+* **Listagem Inteligente:** Visualização do status (Pendente `[ ]` ou Concluído `[X]`).
+* **Conclusão de Tarefa:** Busca linear por ID para marcar tarefas como feitas.
+* **Interface CLI:** Menu interativo via terminal com tratamento de erros.
+
+---
+
+## 🛠️ Arquitetura
+
+O projeto segue o princípio de **Separação de Responsabilidades**:
+* `task_manager.py`: O **Core** (Backend). Contém as regras de negócio e gestão de estado.
+* `main.py`: A **Interface** (Frontend). Gerencia a interação com o usuário e validação de inputs.
+
+## 🔮 Roadmap (Funcionalidades Futuras)
+
+* [ ] **Persistência de Dados (JSON):** Salvar tarefas para não perder dados ao fechar.
+* [ ] **Delete:** Remover tarefas indesejadas.
+* [ ] **Edição:** Alterar título/descrição de tarefas existentes.
+* [ ] **Filtros:** Listar apenas "Pendentes" ou "Concluídas".
+
+---
+
+## 💻 Como Rodar
+
+1. Clone o repositório.
+2. Execute o arquivo principal:
+   ```bash
+   python main.py
+
+---
+
+## 👨‍💻 Autor
+
+* **Filipe Vaz**
+      *(Estudante de Análise e Desenvolvimento de Sistemas - PUCPR)*
