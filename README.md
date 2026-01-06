@@ -28,12 +28,24 @@ O projeto segue o princípio de **Separação de Responsabilidades**:
 
 ---
 
-## 💻 Como Rodar
+## 💻 Como Usar
 
-1. Clone o repositório.
-2. Execute o arquivo principal:
-   ```bash
-   python main.py
+1.  Certifique-se de ter o **Python 3.10** (ou superior) instalado.
+
+2.  Clone este repositório:
+    ```bash
+    git clone https://github.com/filipevbr/task-manager.git
+    ```
+
+3.  Navegue até o diretório do projeto:
+    ```bash
+    cd task-manager
+    ```
+
+4.  **Execute o sistema:**
+    ```bash
+    python src/main.py
+    ```
 
 ---
 
