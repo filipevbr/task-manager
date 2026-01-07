@@ -60,15 +60,15 @@ class TaskManager:
         for task in self.tasks:
             print(task)
     
-    # Inicia o metodo completar as tarefas
-    def complete_task(self, task_id):
+    # Inicia o metodo para alternar as tarefas
+    def toggle_task(self, task_id):
         for task in self.tasks:
             if task.id == task_id:
-                task.completed = True
+                task.completed = not task.completed # Alterna o estado atual da tarefa
                 self.save_to_file()
-                return "Tarefa concluida."
+                return task.completed  # Retorna o status alterado da tarefa
             
-        return "Tarefa não encontrada."
+        return None
 
     # Inicia o metodo para deletar as tarefas
     def delete_task(self, task_id):

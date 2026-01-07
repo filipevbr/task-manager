@@ -18,16 +18,22 @@ def main(page: ft.Page):
     input_task = ft.TextField(label="O que precisa ser feito?", bgcolor=ft.Colors.BLUE_GREY_800, color=ft.Colors.WHITE, expand=True)
     
     # Funcao do botao adicionar tarefas
-    def add_clicked(event):
+    def add_clicked(e):
         if input_task.value:
             manager.add_task(input_task.value, "Via App")  # Salva no backend
             input_task.value = ""  # Limpa o campo visual
             render_tasks()
     
     # Funcao do botao deletar tarefas
-    def delete_clicked(event):
-        task_id = event.control.data
+    def delete_clicked(e):
+        task_id = e.control.data
         manager.delete_task(task_id)
+        render_tasks()
+
+    # Funcao do check box
+    def toggle_clicked(e):
+        task_id = e.control.data
+        manager.toggle_task(task_id)
         render_tasks()
 
     # Funcao que arruma as colunas
@@ -38,9 +44,9 @@ def main(page: ft.Page):
             tasks_view.controls.append(ft.Text("Nenhuma tarefa adicionada.", color=ft.Colors.GREY))
         else:
             for task in manager.tasks:
-                text = ft.Text(value=f"{task.id}. {task.title}", size=18, color=ft.Colors.WHITE)  # Cria o texto
                 button_del = ft.IconButton(ft.Icons.DELETE, ft.Colors.RED, data=task.id, on_click=delete_clicked)  # Cria o botao de deletar
-                row = ft.Row(controls=[text, button_del], alignment=ft.MainAxisAlignment.SPACE_BETWEEN)  # Linha que adiciona o texto e botao de del
+                check_box = ft.Checkbox(label=f"{task.title}", value=task.completed, data=task.id, on_change=toggle_clicked)  # Cria o checkbox
+                row = ft.Row(controls=[check_box, button_del], alignment=ft.MainAxisAlignment.SPACE_BETWEEN)  # Linha que adiciona o texto e botao de del
                 tasks_view.controls.append(row)
 
         page.update()

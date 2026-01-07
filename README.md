@@ -4,26 +4,26 @@ Um gerenciador de tarefas pessoal, robusto e simples, desenvolvido em Python. O 
 
 ---
 
-## 🚀 Funcionalidades Atuais
-
-* **Adicionar Tarefa:** Criação rápida de tarefas com título.
-* **Listagem Visual:** Visualização clara das tarefas em uma interface estilo mobile.
-* **Exclusão de Tarefa:** Botão interativo (Lixeira) para remover tarefas permanentemente.
-* **Persistência de Dados (JSON):** Sistema de Auto-Save/Load para manter os dados salvos no disco.
-* **Interface GUI:** Interface gráfica responsiva simulando app mobile (via **Flet**).
-
----
-
 ## 🛠️ Arquitetura
 
 O projeto segue o princípio de **Separação de Responsabilidades**:
 * `src/task_manager.py`: O **Core** (Backend/Model). Contém as regras de negócio, gestão de estado e persistência JSON.
 * `src/app.py`: A **Interface GUI** (View/Controller). Gerencia a interface gráfica e eventos do usuário usando Flet.
 
+---
+
+## 🚀 Funcionalidades Atuais (MVP)
+
+* **Adicionar Tarefa:** Criação rápida de tarefas com título.
+* **Listagem Visual:** Visualização clara das tarefas em uma interface estilo mobile.
+* **Conclusão de Tarefa:** Checkbox interativo para marcar/desmarcar tarefas.
+* **Exclusão de Tarefa:** Botão interativo (Lixeira) para remover tarefas permanentemente.
+* **Persistência de Dados (JSON):** Sistema de Auto-Save/Load para manter os dados salvos no disco.
+* **Interface GUI:** Interface gráfica responsiva simulando app mobile (via **Flet**).
+
 ## 🔮 Roadmap (Funcionalidades Futuras)
 
-* [ ] **Conclusão Visual:** Checkbox para marcar tarefas como feitas.
-* [ ] **Edição:** Alterar título/descrição de tarefas existentes.
+* [ ] **Edição:** Alterar título/descrição de tarefas existentes (Sprint 15).
 * [ ] **Filtros:** Ver apenas "Pendentes" ou "Concluídas".
 
 ---
