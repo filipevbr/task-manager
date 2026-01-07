@@ -38,14 +38,18 @@ class TaskManager:
     def __init__(self):
         self.tasks = []
         self.load_from_file()  # Carrega os arquivos salvos ao iniciar
-    
+
     # Inicia o metodo para adicionar tarefas
     def add_task(self, title, description):
-        task_id = len(self.tasks) + 1
+        if not self.tasks:
+            task_id = 1
+        else:
+            task_id = self.tasks[-1].id + 1  # Pega a ultima tarefa da lista e acessa o .id dela
+
         new_task = Task(task_id, title, description)
         self.tasks.append(new_task)
-        print(f"Tarefa '{new_task.title}' adicionada com sucesso.")
         self.save_to_file()
+        return f"Tarefa '{title}' adicionada."
     
     # Inicia o metodo para listar as tarefas
     def list_tasks(self):
@@ -61,11 +65,20 @@ class TaskManager:
         for task in self.tasks:
             if task.id == task_id:
                 task.completed = True
-                print(f"Tarefa {task} concluída.")
                 self.save_to_file()
-                return
+                return "Tarefa concluida."
             
-        print("Tarefa não encontrada.")
+        return "Tarefa não encontrada."
+
+    # Inicia o metodo para deletar as tarefas
+    def delete_task(self, task_id):
+        for task in self.tasks:
+            if task.id == task_id:
+                self.tasks.remove(task)
+                self.save_to_file()
+                return "Tarefa excluida."
+    
+        return "Erro: Não foi possível excluir a tarefa."
 
     # Inicia o metodo para salvar em um arquivo
     def save_to_file(self):
@@ -75,7 +88,6 @@ class TaskManager:
         
         with open("tasks.json", "w") as file:
             json.dump(temp_list, file, indent=4)
-            print("AS TAREFAS FORAM SALVAS.")
     
     # Inicia o metodo para carregar o arquivo salvo
     def load_from_file(self):

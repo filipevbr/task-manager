@@ -1,33 +1,30 @@
 # 📋 Task Manager
 
-Um gerenciador de tarefas pessoal, robusto e simples, desenvolvido em Python. O objetivo deste projeto é aplicar conceitos avançados de Orientação a Objetos e Arquitetura de Software, oferecendo tanto uma interface CLI quanto uma Interface Gráfica moderna.
+Um gerenciador de tarefas pessoal, robusto e simples, desenvolvido em Python. O objetivo deste projeto é aplicar conceitos avançados de Orientação a Objetos e Arquitetura de Software, oferecendo uma Interface Gráfica moderna.
 
 ---
 
-## 🚀 Funcionalidades Atuais (MVP)
+## 🚀 Funcionalidades Atuais
 
-* **Adicionar Tarefa:** Criação de tarefas com título e descrição.
-* **Listagem Inteligente:** Visualização do status (Pendente `[ ]` ou Concluído `[X]`).
-* **Conclusão de Tarefa:** Busca linear por ID para marcar tarefas como feitas.
+* **Adicionar Tarefa:** Criação rápida de tarefas com título.
+* **Listagem Visual:** Visualização clara das tarefas em uma interface estilo mobile.
+* **Exclusão de Tarefa:** Botão interativo (Lixeira) para remover tarefas permanentemente.
 * **Persistência de Dados (JSON):** Sistema de Auto-Save/Load para manter os dados salvos no disco.
-* **Múltiplas Interfaces:**
-    * **CLI:** Menu interativo via terminal com tratamento de erros.
-    * **GUI (Mobile):** Interface gráfica responsiva simulando app mobile (via **Flet**).
+* **Interface GUI:** Interface gráfica responsiva simulando app mobile (via **Flet**).
 
 ---
 
 ## 🛠️ Arquitetura
 
-O projeto segue o princípio de **Separação de Responsabilidades** (MVC):
+O projeto segue o princípio de **Separação de Responsabilidades**:
 * `src/task_manager.py`: O **Core** (Backend/Model). Contém as regras de negócio, gestão de estado e persistência JSON.
-* `src/main.py`: A **Interface CLI** (Terminal). Gerencia a interação textual.
-* `src/app.py`: A **Interface GUI** (Visual). Gerencia a interface gráfica usando o framework Flet.
+* `src/app.py`: A **Interface GUI** (View/Controller). Gerencia a interface gráfica e eventos do usuário usando Flet.
 
 ## 🔮 Roadmap (Funcionalidades Futuras)
 
-* [ ] **Delete:** Remover tarefas indesejadas.
+* [ ] **Conclusão Visual:** Checkbox para marcar tarefas como feitas.
 * [ ] **Edição:** Alterar título/descrição de tarefas existentes.
-* [ ] **Filtros:** Listar apenas "Pendentes" ou "Concluídas".
+* [ ] **Filtros:** Ver apenas "Pendentes" ou "Concluídas".
 
 ---
 
@@ -50,15 +47,10 @@ O projeto segue o princípio de **Separação de Responsabilidades** (MVC):
     pip install flet
     ```
 
-5.  **Execute o sistema:**
-    * **Para versão Visual (Recomendado):**
-      ```bash
-      python src/app.py
-      ```
-    * **Para versão Terminal:**
-      ```bash
-      python src/main.py
-      ```
+5.  **Execute o App:**
+    ```bash
+    python src/app.py
+    ```
 
 ---
 
