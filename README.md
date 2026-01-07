@@ -10,6 +10,7 @@ Um gerenciador de tarefas pessoal, robusto e simples, desenvolvido em Python. O 
 * **Listagem Inteligente:** Visualização do status (Pendente `[ ]` ou Concluído `[X]`).
 * **Conclusão de Tarefa:** Busca linear por ID para marcar tarefas como feitas.
 * **Interface CLI:** Menu interativo via terminal com tratamento de erros.
+* **Persistência de Dados (JSON):** Salvar tarefas para não perder dados ao fechar.
 
 ---
 
@@ -21,7 +22,6 @@ O projeto segue o princípio de **Separação de Responsabilidades**:
 
 ## 🔮 Roadmap (Funcionalidades Futuras)
 
-* [ ] **Persistência de Dados (JSON):** Salvar tarefas para não perder dados ao fechar.
 * [ ] **Delete:** Remover tarefas indesejadas.
 * [ ] **Edição:** Alterar título/descrição de tarefas existentes.
 * [ ] **Filtros:** Listar apenas "Pendentes" ou "Concluídas".

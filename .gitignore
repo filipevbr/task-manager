@@ -10,3 +10,6 @@ venv/
 # IDEs
 .vscode/
 .idea/
+
+# Banco de dados local (json)
+tasks.json
