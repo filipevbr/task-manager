@@ -1,15 +1,28 @@
-# Python cache
+# Byte-compiled / Optimized / DLL files
 __pycache__/
 *.py[cod]
+*$py.class
 
-# Ambientes virtuais
-env/
+# Caches e Ambientes Virtuais
+.venv/
 venv/
+env/
 .env
 
-# IDEs
-.vscode/
-.idea/
+# Distribuição / Builds
+build/
+dist/
+*.egg-info/
 
-# Banco de dados local (json)
-tasks.json
+# Arquivos de Dados Locais 
+*.json
+*.db
+*.sqlite3
+
+# Logs e Arquivos de Sistema
+*.log
+.DS_Store
+
+# Flet (Arquivos temporários do framework)
+.flet/
+storage/
