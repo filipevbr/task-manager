@@ -17,7 +17,7 @@ class Task:
 
         return f"{status} {self.id} - {self.title}"
     
-    # Inicia o metodo para transformar em dicionario
+    # Funcao para transformar em dicionario
     def to_dict(self):
         return {
             "id": self.id,
@@ -26,7 +26,7 @@ class Task:
             "completed": self.completed,
         }
     
-    # Inicia o metodo para receber um dicionario -- ao usar staticmethod e possivel receber sem ter um objeto (tarefa) criado
+    # Funcao para receber um dicionario -- ao usar staticmethod e possivel receber sem ter um objeto (tarefa) criado
     @staticmethod
     def from_dict(data):
         task = Task(data["id"], data["title"], data["description"])
@@ -39,7 +39,7 @@ class TaskManager:
         self.tasks = []
         self.load_from_file()  # Carrega os arquivos salvos ao iniciar
 
-    # Inicia o metodo para adicionar tarefas
+    # Funcao para adicionar tarefas
     def add_task(self, title, description):
         if not self.tasks:
             task_id = 1
@@ -48,10 +48,11 @@ class TaskManager:
 
         new_task = Task(task_id, title, description)
         self.tasks.append(new_task)
+
         self.save_to_file()
         return f"Tarefa '{title}' adicionada."
     
-    # Inicia o metodo para listar as tarefas
+    # Funcao para listar as tarefas
     def list_tasks(self):
         if not self.tasks:
             print("A lista está vazia.")
@@ -59,28 +60,30 @@ class TaskManager:
         
         for task in self.tasks:
             print(task)
-    
-    # Inicia o metodo para alternar as tarefas
-    def toggle_task(self, task_id):
-        for task in self.tasks:
-            if task.id == task_id:
-                task.completed = not task.completed # Alterna o estado atual da tarefa
-                self.save_to_file()
-                return task.completed  # Retorna o status alterado da tarefa
-            
-        return None
 
-    # Inicia o metodo para deletar as tarefas
+    # Funcao para deletar as tarefas
     def delete_task(self, task_id):
         for task in self.tasks:
             if task.id == task_id:
                 self.tasks.remove(task)
+
                 self.save_to_file()
                 return "Tarefa excluida."
     
         return "Erro: Não foi possível excluir a tarefa."
+    
+    # Funcao para atualizar as tarefas
+    def update_task(self, task_id, new_title):
+        for task in self.tasks:
+            if task.id == task_id:
+                task.title = new_title
 
-    # Inicia o metodo para salvar em um arquivo
+                self.save_to_file()
+                return True
+            
+        return None
+        
+    # Funcao para salvar em um arquivo
     def save_to_file(self):
         temp_list = []
         for task in self.tasks:
@@ -89,7 +92,7 @@ class TaskManager:
         with open("tasks.json", "w") as file:
             json.dump(temp_list, file, indent=4)
     
-    # Inicia o metodo para carregar o arquivo salvo
+    # Funcao para carregar o arquivo salvo
     def load_from_file(self):
         try:
             with open("tasks.json", "r") as file:
@@ -100,3 +103,14 @@ class TaskManager:
         
         except FileNotFoundError:
             pass  
+
+    # Funcao para alternar o status das tarefas
+    def toggle_task(self, task_id):
+        for task in self.tasks:
+            if task.id == task_id:
+                task.completed = not task.completed # Alterna o estado atual da tarefa
+
+                self.save_to_file()
+                return task.completed  # Retorna o status alterado da tarefa
+            
+        return None
